@@ -1,0 +1,22 @@
+application: djangotest12
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /.*
+  script: main.application
+
+- url: /static
+  static_dir: static
+  
+libraries:
+
+- name: django
+  version: "1.4"
+  
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'DjangoTest1.settings'
+

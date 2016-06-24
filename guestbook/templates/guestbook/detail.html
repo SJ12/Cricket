@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="txtweb-appkey" content="132cadde-50e7-470f-ae8e-c7d9216511da">
+ </head>
+<body>
+{% for ing in innings %}
+
+{{ing.batteam}} - {{ing.runs}}/{{ing.wickets}} ({{ing.overs}})<br>
+
+	{% for bat in ing.batsmen %}
+	{{bat.name}} {{bat.status}}: {{bat.runs}}({{bat.balls}}) {{bat.fours}} {{bat.sixes}}<br>
+	{% endfor %}
+-<br>
+
+{{ing.bowlteam}} Bowling:<br>	
+	{% for bowl in ing.bowlers %}
+	{{bowl.name}}: {{bowl.overs}}-{{bowl.maidens}}-{{bowl.runs}}-{{bowl.wickets}} {{bowl.noballs}} {{bowl.wides}}<br>
+	{% endfor %}
+
+{%if ing.fow %}	
+-<br>FOW:
+{% for wkt in ing.fow %}
+{{wkt.num}}-{{wkt.runs}}({{wkt.name}}, {{wkt.overs}}ov){% if not forloop.last %},{% endif %}
+{% endfor %}
+<br>
+{% endif %}
+
+--<br>
+{% endfor %}
+
+ Teams:<br>
+ {% for team, players in teams.items %}
+ {{ team }}: 
+ {% for player in players %}
+ {{ player }}{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  <br> 
+ {% endfor %}
+</body>
+</html>

@@ -1,0 +1,190 @@
+<html>
+  <head>
+    <meta name="txtweb-appkey" content="132cadde-50e7-470f-ae8e-c7d9216511da">
+  </head>
+  <body>
+    {% if ongoing %}
+  -- ONGOING --<br>
+    {% for greeting in ongoing %}
+    	
+    	{{greeting.srs}} - {{greeting.header.mnum}}<br>
+    	{% if greeting.displayBowlingTeamScore %}
+    	{{greeting.bowlingTeamName}} - {{greeting.displayBowlingTeamScore}}<br>
+		{{greeting.battingTeamName}} - {{greeting.displayBattingTeamScore}}<br>
+		
+		{% if greeting.miniscore.striker.fullName %}
+    	{{greeting.miniscore.striker.fullName}}* - {{greeting.miniscore.striker.runs}}({{greeting.miniscore.striker.balls}})<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.nonStriker.fullName %}
+    	{{greeting.miniscore.nonStriker.fullName}} - {{greeting.miniscore.nonStriker.runs}}({{greeting.miniscore.nonStriker.balls}})<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.prevOvers %}
+    	Prev balls: {{greeting.miniscore.prevOvers}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.bowler.fullName %}
+    	{{greeting.miniscore.bowler.fullName}}*: {{greeting.miniscore.bowler.overs}}-{{greeting.miniscore.bowler.maidens}}-{{greeting.miniscore.bowler.runs}}-{{greeting.miniscore.bowler.wicket}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.nsbowler.fullName %}
+    	{{greeting.miniscore.nsbowler.fullName}}: {{greeting.miniscore.nsbowler.overs}}-{{greeting.miniscore.nsbowler.maidens}}-{{greeting.miniscore.nsbowler.runs}}-{{greeting.miniscore.nsbowler.wicket}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.cprtshp%}
+    	P'ship: {{greeting.miniscore.cprtshp}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.lWkt %}
+    	Last wkt: {{greeting.miniscore.lWkt}}<br>
+    	{% endif %}
+    	
+    	{% else %}
+    		{{greeting.team1.fName}} v {{greeting.team2.fName}}<br>
+    	{% endif %}
+    	{{greeting.header.status}}
+    	{% if greeting.addstatus %}
+    	 ({{greeting.addstatus}})
+    	{% endif %}
+    	{% if greeting.header.MOM %}
+    	 (MoM: {{greeting.header.MOM}})
+    	{% endif %}
+    	{% if greeting.datapath %}
+    	{% if greeting.miniscore.oversleft %}<br>
+    	Ovs left: {{greeting.miniscore.oversleft}}
+    	{% endif %}
+    	<br><a href="http://djangotest12.appspot.com/details/?url={{ greeting.datapath }}" > Scorecard </a>
+    	<br><a href="http://djangotest12.appspot.com/highlights/?url={{ greeting.datapath }}" > Highlights </a>
+    	{% endif %}
+    	<br>-<br>
+    	
+    {% endfor %}
+    {% endif %}
+    
+      {% if upcoming %}
+  -- UPCOMING --<br>
+    {% for greeting in upcoming %}
+
+    	{{greeting.srs}} - {{greeting.header.mnum}}<br>
+    	{% if greeting.displayBowlingTeamScore %}
+    	{{greeting.bowlingTeamName}} - {{greeting.displayBowlingTeamScore}}<br>
+		{{greeting.battingTeamName}} - {{greeting.displayBattingTeamScore}}<br>
+		
+		{% if greeting.miniscore.striker.fullName %}
+    	{{greeting.miniscore.striker.fullName}}* - {{greeting.miniscore.striker.runs}}({{greeting.miniscore.striker.balls}})<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.nonStriker.fullName %}
+    	{{greeting.miniscore.nonStriker.fullName}} - {{greeting.miniscore.nonStriker.runs}}({{greeting.miniscore.nonStriker.balls}})<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.prevOvers %}
+    	Prev balls: {{greeting.miniscore.prevOvers}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.bowler.fullName %}
+    	{{greeting.miniscore.bowler.fullName}}*: {{greeting.miniscore.bowler.overs}}-{{greeting.miniscore.bowler.maidens}}-{{greeting.miniscore.bowler.runs}}-{{greeting.miniscore.bowler.wicket}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.nsbowler.fullName %}
+    	{{greeting.miniscore.nsbowler.fullName}}: {{greeting.miniscore.nsbowler.overs}}-{{greeting.miniscore.nsbowler.maidens}}-{{greeting.miniscore.nsbowler.runs}}-{{greeting.miniscore.nsbowler.wicket}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.cprtshp%}
+    	P'ship: {{greeting.miniscore.cprtshp}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.lWkt %}
+    	Last wkt: {{greeting.miniscore.lWkt}}<br>
+    	{% endif %}
+    	
+    	{% else %}
+    		{{greeting.team1.fName}} v {{greeting.team2.fName}}<br>
+    	{% endif %}
+    	{{greeting.header.status}}
+    	{% if greeting.addstatus %}
+    	 ({{greeting.addstatus}})
+    	{% endif %}
+    	{% if greeting.header.MOM %}
+    	 (MoM: {{greeting.header.MOM}})
+    	{% endif %}
+    	{% if greeting.datapath %}
+    	{% if greeting.miniscore.oversleft %}<br>
+    	Ovs left: {{greeting.miniscore.oversleft}}
+    	{% endif %}
+    	
+    	<br><a href="http://djangotest12.appspot.com/details/?url={{ greeting.datapath }}" > Scorecard </a>
+    	<br><a href="http://djangotest12.appspot.com/highlights/?url={{ greeting.datapath }}" > Highlights </a>
+    	{% endif %}
+    	{% if greeting.countdown %}
+    	<br>{{greeting.countdown}}
+    	{% endif %}
+    	<br>-<br>
+    	
+    {% endfor %}
+    {% endif %}
+    
+    
+  {% if result %}
+  -- RESULTS --<br>
+    {% for greeting in result %}
+    	{{greeting.srs}} - {{greeting.header.mnum}}<br>
+    	{% if greeting.displayBowlingTeamScore %}
+    	{{greeting.bowlingTeamName}} - {{greeting.displayBowlingTeamScore}}<br>
+		{{greeting.battingTeamName}} - {{greeting.displayBattingTeamScore}}<br>
+		
+		{% if greeting.miniscore.striker.fullName %}
+    	{{greeting.miniscore.striker.fullName}}* - {{greeting.miniscore.striker.runs}}({{greeting.miniscore.striker.balls}})<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.nonStriker.fullName %}
+    	{{greeting.miniscore.nonStriker.fullName}} - {{greeting.miniscore.nonStriker.runs}}({{greeting.miniscore.nonStriker.balls}})<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.prevOvers %}
+    	Prev balls: {{greeting.miniscore.prevOvers}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.bowler.fullName %}
+    	{{greeting.miniscore.bowler.fullName}}*: {{greeting.miniscore.bowler.overs}}-{{greeting.miniscore.bowler.maidens}}-{{greeting.miniscore.bowler.runs}}-{{greeting.miniscore.bowler.wicket}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.nsbowler.fullName %}
+    	{{greeting.miniscore.nsbowler.fullName}}: {{greeting.miniscore.nsbowler.overs}}-{{greeting.miniscore.nsbowler.maidens}}-{{greeting.miniscore.nsbowler.runs}}-{{greeting.miniscore.nsbowler.wicket}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.cprtshp%}
+    	P'ship: {{greeting.miniscore.cprtshp}}<br>
+    	{% endif %}
+    	
+    	{% if greeting.miniscore.lWkt %}
+    	Last wkt: {{greeting.miniscore.lWkt}}<br>
+    	{% endif %}
+    	
+    	{% else %}
+    		{{greeting.team1.fName}} v {{greeting.team2.fName}}<br>
+    	{% endif %}
+    	{{greeting.header.status}}
+    	{% if greeting.addstatus %}
+    	 ({{greeting.addstatus}})
+    	{% endif %}
+    	{% if greeting.header.MOM %}
+    	 (MoM: {{greeting.header.MOM}})
+    	{% endif %}
+
+    	{% if greeting.datapath %}
+    	{% if greeting.miniscore.oversleft %}<br>
+    	Ovs left: {{greeting.miniscore.oversleft}}
+    	{% endif %}
+    	<br><a href="http://djangotest12.appspot.com/details/?url={{ greeting.datapath }}" > Scorecard </a>
+    	<br><a href="http://djangotest12.appspot.com/highlights/?url={{ greeting.datapath }}" > Highlights </a>
+    	{% endif %}
+    	<br>-<br>
+    	
+    {% endfor %}
+    {% endif %}
+
+<a href='http://ec2-184-169-171-66.us-west-1.compute.amazonaws.com/sportkit/scri_push.php?sub=1' class='txtweb-menu-to'> subscribe for live alerts </a><br>
+  </body>
+</html>

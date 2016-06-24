@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="txtweb-appkey" content="132cadde-50e7-470f-ae8e-c7d9216511da">
+ </head>
+<body>
+
+{% for ing in innings %}
+{{ing.team }}<br>
+
+{% for h in ing.highlight %}
+{{h.type}}, {{h.ovs}}ov - {{h.text}}<br>-<br>
+
+{% endfor %}
+--<br>
+{% endfor %}
+</body>
+</html>

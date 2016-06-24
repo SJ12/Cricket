@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+    <meta name="txtweb-appkey" content="132cadde-50e7-470f-ae8e-c7d9216511da">
+  </head>
+  <body>
+    {% for greeting in greetings %}
+    	{{greeting.series}} - {{greeting.matchdesc}}<br>
+    	{% if greeting.bowlingTeamName %}
+    	{{greeting.bowlingTeamName}} - {{greeting.displayBowlingTeamScore}}<br>
+		{{greeting.battingTeamName}} - {{greeting.displayBattingTeamScore}}<br>
+    	{{greeting.striker.fullName}}* - {{greeting.striker.runs}}({{greeting.striker.balls}})<br>
+    	{{greeting.nonStriker.fullName}} - {{greeting.nonStriker.runs}}({{greeting.nonStriker.balls}})<br>
+    	{{greeting.strikerbowler.fullName}}*: {{greeting.strikerbowler.overs}}-{{greeting.strikerbowler.maidens}}-{{greeting.strikerbowler.runs}}-{{greeting.strikerbowler.wickets}}<br>
+    	{{greeting.nonStrikerbowler.fullName}}: {{greeting.nonStrikerbowler.overs}}-{{greeting.nonStrikerbowler.maidens}}-{{greeting.nonStrikerbowler.runs}}-{{greeting.nonStrikerbowler.wickets}}<br>
+    	
+    	{% else %}
+    		{{greeting.team1.fullName}} v {{greeting.team2.fullName}}<br>
+    	{% endif %}
+    	{{greeting.status}}<br>-<br>
+    {% endfor %}
+
+
+  </body>
+</html>
