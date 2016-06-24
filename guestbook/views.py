@@ -73,7 +73,7 @@ def get_json(request):
     
     # finding index of matches which are not of WC
     for index, ele in enumerate(data):
-        if ele.get("srs") in ["County Championship Division One 2015", "County Championship Division Two 2015",'Royal London One-Day Cup 2015']:
+        if ele.get("srs") in ["NatWest t20 Blast 2016","County Championship Division One 2016","County Championship Division Two 2016","County Championship Division One 2015", "County Championship Division Two 2015",'Royal London One-Day Cup 2015']:
             removed.append(ele)
     
 #     removing non WC items
