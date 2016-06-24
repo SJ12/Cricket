@@ -4,20 +4,20 @@
     <meta name="txtweb-appkey" content="132cadde-50e7-470f-ae8e-c7d9216511da">
   </head>
   <body>
-    {% for greeting in greetings %}
-    	{{greeting.series}} - {{greeting.matchdesc}}<br>
-    	{% if greeting.bowlingTeamName %}
-    	{{greeting.bowlingTeamName}} - {{greeting.displayBowlingTeamScore}}<br>
-		{{greeting.battingTeamName}} - {{greeting.displayBattingTeamScore}}<br>
-    	{{greeting.striker.fullName}}* - {{greeting.striker.runs}}({{greeting.striker.balls}})<br>
-    	{{greeting.nonStriker.fullName}} - {{greeting.nonStriker.runs}}({{greeting.nonStriker.balls}})<br>
-    	{{greeting.strikerbowler.fullName}}*: {{greeting.strikerbowler.overs}}-{{greeting.strikerbowler.maidens}}-{{greeting.strikerbowler.runs}}-{{greeting.strikerbowler.wickets}}<br>
-    	{{greeting.nonStrikerbowler.fullName}}: {{greeting.nonStrikerbowler.overs}}-{{greeting.nonStrikerbowler.maidens}}-{{greeting.nonStrikerbowler.runs}}-{{greeting.nonStrikerbowler.wickets}}<br>
+    {% for match in matches %}
+    	{{match.series}} - {{match.matchdesc}}<br>
+    	{% if match.bowlingTeamName %}
+    	{{match.bowlingTeamName}} - {{match.displayBowlingTeamScore}}<br>
+		{{match.battingTeamName}} - {{match.displayBattingTeamScore}}<br>
+    	{{match.striker.fullName}}* - {{match.striker.runs}}({{match.striker.balls}})<br>
+    	{{match.nonStriker.fullName}} - {{match.nonStriker.runs}}({{match.nonStriker.balls}})<br>
+    	{{match.strikerbowler.fullName}}*: {{match.strikerbowler.overs}}-{{match.strikerbowler.maidens}}-{{match.strikerbowler.runs}}-{{match.strikerbowler.wickets}}<br>
+    	{{match.nonStrikerbowler.fullName}}: {{match.nonStrikerbowler.overs}}-{{match.nonStrikerbowler.maidens}}-{{match.nonStrikerbowler.runs}}-{{match.nonStrikerbowler.wickets}}<br>
     	
     	{% else %}
-    		{{greeting.team1.fullName}} v {{greeting.team2.fullName}}<br>
+    		{{match.team1.fullName}} v {{match.team2.fullName}}<br>
     	{% endif %}
-    	{{greeting.status}}<br>-<br>
+    	{{match.status}}<br>-<br>
     {% endfor %}
 
 
